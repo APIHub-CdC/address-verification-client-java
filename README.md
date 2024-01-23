@@ -212,8 +212,11 @@ public class VerificationsApiTest {
         objAddress.setZipCode("");
         
         objVerificationRequest.setRequestId(UUID.fromString(""));
+        objVerificationRequest.setSubscriptionId(UUID.fromString(""));
         objVerificationRequest.setServiceCode("");
         objVerificationRequest.setContractNumber("");
+        objVerificationRequest.setAcceptanceDate("");
+        objVerificationRequest.setAcceptance("");
         objVerificationRequest.setHolder(objHolder);
         objVerificationRequest.setAddress(objAddress);
         
