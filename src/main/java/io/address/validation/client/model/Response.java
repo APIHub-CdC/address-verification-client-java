@@ -1,6 +1,8 @@
 package io.address.validation.client.model;
 
+import java.util.ArrayList;
 import java.util.Objects;
+
 import com.google.gson.annotations.SerializedName;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -10,7 +12,13 @@ import io.swagger.annotations.ApiModelProperty;
 public class Response {
   @SerializedName("indexes")
   private Indexes indexes = null;
-  public Response indexes(Indexes indexes) {
+  
+  @SerializedName("errors")
+  private ArrayList<Error> errors = null;
+ 
+
+
+public Response indexes(Indexes indexes) {
     this.indexes = indexes;
     return this;
   }
@@ -43,6 +51,7 @@ public class Response {
     sb.append("class Response {\n");
     
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }

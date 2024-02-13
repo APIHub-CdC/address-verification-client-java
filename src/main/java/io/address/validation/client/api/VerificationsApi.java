@@ -1,8 +1,13 @@
 package io.address.validation.client.api;
 
-import com.google.gson.reflect.TypeToken;
-
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.reflect.TypeToken;
 
 import io.address.validation.client.ApiCallback;
 import io.address.validation.client.ApiClient;
@@ -12,15 +17,9 @@ import io.address.validation.client.Configuration;
 import io.address.validation.client.Pair;
 import io.address.validation.client.ProgressRequestBody;
 import io.address.validation.client.ProgressResponseBody;
+import io.address.validation.client.model.ResponsePost;
 import io.address.validation.client.model.VerificationRequest;
 import io.address.validation.client.model.VerificationResponse200;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class VerificationsApi {
     private ApiClient apiClient;
     public VerificationsApi() {
@@ -94,39 +93,39 @@ public class VerificationsApi {
         return call;
     }
     
-    public VerificationResponse200 createVerification( String xApiKey, String username, String password, VerificationRequest body) throws ApiException {
-        ApiResponse<VerificationResponse200> resp = createVerificationWithHttpInfo( xApiKey, username, password, body);
+    public ResponsePost createVerification( String xApiKey, String username, String password, VerificationRequest body) throws ApiException {
+        ApiResponse<ResponsePost> resp = createVerificationWithHttpInfo( xApiKey, username, password, body);
         return resp.getData();
     }
     
-    public ApiResponse<VerificationResponse200> createVerificationWithHttpInfo(String xApiKey, String username, String password, VerificationRequest body) throws ApiException {
+    public ApiResponse<ResponsePost> createVerificationWithHttpInfo(String xApiKey, String username, String password, VerificationRequest body) throws ApiException {
         okhttp3.Call call = createVerificationValidateBeforeCall( xApiKey, username, password, body, null, null);
-        Type localVarReturnType = new TypeToken<VerificationResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<ResponsePost>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
     
-    public okhttp3.Call createVerificationAsync(String xSignature, String xApiKey, String username, String password, VerificationRequest body, String contentType, final ApiCallback<VerificationResponse200> callback) throws ApiException {
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-        okhttp3.Call call = createVerificationValidateBeforeCall(xApiKey, username, password, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VerificationResponse200>(){}.getType();
-        //apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
+//    public okhttp3.Call createVerificationAsync(String xSignature, String xApiKey, String username, String password, VerificationRequest body, String contentType, final ApiCallback<VerificationResponse200> callback) throws ApiException {
+//        ProgressResponseBody.ProgressListener progressListener = null;
+//        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+//        if (callback != null) {
+//            progressListener = new ProgressResponseBody.ProgressListener() {
+//                @Override
+//                public void update(long bytesRead, long contentLength, boolean done) {
+//                    callback.onDownloadProgress(bytesRead, contentLength, done);
+//                }
+//            };
+//            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+//                @Override
+//                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+//                    callback.onUploadProgress(bytesWritten, contentLength, done);
+//                }
+//            };
+//        }
+//        okhttp3.Call call = createVerificationValidateBeforeCall(xApiKey, username, password, body, progressListener, progressRequestListener);
+//        Type localVarReturnType = new TypeToken<VerificationResponse200>(){}.getType();
+//        //apiClient.executeAsync(call, localVarReturnType, callback);
+//        return call;
+//    }
     
     public okhttp3.Call getVerificationByrequestIdCall( String xApiKey, String username, String password, String requestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
@@ -196,28 +195,28 @@ public class VerificationsApi {
         return apiClient.execute(call, localVarReturnType);
     }
     
-    public okhttp3.Call getVerificationByrequestIdAsync(String xSignature, String xApiKey, String username, String password, String requestId, final ApiCallback<VerificationResponse200> callback) throws ApiException {
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-        okhttp3.Call call = getVerificationByrequestIdValidateBeforeCall(xApiKey, username, password, requestId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VerificationResponse200>(){}.getType();
-        //apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
+//    public okhttp3.Call getVerificationByrequestIdAsync(String xSignature, String xApiKey, String username, String password, String requestId, final ApiCallback<VerificationResponse200> callback) throws ApiException {
+//        ProgressResponseBody.ProgressListener progressListener = null;
+//        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+//        if (callback != null) {
+//            progressListener = new ProgressResponseBody.ProgressListener() {
+//                @Override
+//                public void update(long bytesRead, long contentLength, boolean done) {
+//                    callback.onDownloadProgress(bytesRead, contentLength, done);
+//                }
+//            };
+//            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+//                @Override
+//                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+//                    callback.onUploadProgress(bytesWritten, contentLength, done);
+//                }
+//            };
+//        }
+//        okhttp3.Call call = getVerificationByrequestIdValidateBeforeCall(xApiKey, username, password, requestId, progressListener, progressRequestListener);
+//        Type localVarReturnType = new TypeToken<VerificationResponse200>(){}.getType();
+//        //apiClient.executeAsync(call, localVarReturnType, callback);
+//        return call;
+//    }
     
     public okhttp3.Call verificationsOptionsCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
