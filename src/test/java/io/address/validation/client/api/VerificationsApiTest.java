@@ -13,7 +13,7 @@ import com.cdc.apihub.signer.manager.interceptor.SignerInterceptor;
 import io.address.validation.client.ApiClient;
 import io.address.validation.client.model.Address;
 import io.address.validation.client.model.Holder;
-import io.address.validation.client.model.State;
+import io.address.validation.client.model.ResponsePost;
 import io.address.validation.client.model.VerificationRequest;
 import io.address.validation.client.model.VerificationResponse200;
 import okhttp3.OkHttpClient;
@@ -75,7 +75,7 @@ public class VerificationsApiTest {
         objVerificationRequest.setAddress(objAddress);
         
         String contentType = null;
-        VerificationResponse200 response = api.createVerification(xApiKey, username, password, objVerificationRequest);
+        ResponsePost response = api.createVerification(xApiKey, username, password, objVerificationRequest);
         logger.info(response.toString());
     } 
     
@@ -84,7 +84,7 @@ public class VerificationsApiTest {
         
         String requestId = "";
         VerificationResponse200 response = api.getVerificationByrequestId(xApiKey, username, password, requestId);
-        logger.info(response.toString());
+        logger.info("** "+response.toString());
     }
     
     
